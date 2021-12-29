@@ -1,0 +1,37 @@
+form {
+    padding: 1rem 1.5rem;
+    border: 1px solid white;
+    max-width: 45rem;
+}
+
+@media only screen and (min-width: 800px) {
+    form {
+        width: 45rem;
+        margin: 0 auto;
+    }
+}
+
+.form-group, .btn {
+    margin: 1rem 0;
+}
+
+.btn {
+    width: 100% !important;
+    font-weight: bold !important;
+}
+
+html, body {overflow-x: hidden !important;}
+
+.image-div {
+    border: 1px solid #aaa;
+    margin: 1rem 0;
+    display: none;
+    justify-content: center;
+    max-height: 50rem;
+    width: 100%;
+}
+
+.preview-img {
+    width: 100%;
+    height: auto;
+}

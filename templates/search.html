@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>Results for {{ search_input }}</title> 
+<link rel="stylesheet" href="/static/products-list.css">
+{% endblock %}
+
+{% block body %} 
+
+  {% if result|length > 0 %}
+    <div class="products-container">
+        {% for prod in result %}
+        <div class="prod-container">
+          <a href="/product/{{ prod['id'] }}">
+            <div class="img-container">
+                <img src="/img/{{ prod['img_id'] }}" alt="Product Image">
+            </div>  
+          </a>
+          
+          
+          <div class="details">
+            <span class="name">{{ prod['name'] }}</span>
+            <span class="price">{{ usd(prod['price']) }}</span>
+            
+            <form action="/cart" method='post'>
+                <input name='prod_id' type="hidden" value='{{ prod["id"] }}'>
+              
+                <button type='submit' class='cart-btn'>
+                    <span class="fas fa-shopping-cart"></span> <span class='cart-text'>Add to Cart</span>
+                </button>
+            </form>
+          </div>
+        </div>
+        {% endfor %}   
+    {% else %}
+        <h4>Product not found :/</h4>
+    {% endif %}
+    </div>
+{% endblock %}

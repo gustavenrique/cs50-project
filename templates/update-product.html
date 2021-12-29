@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>Update Product</title> 
+
+<link rel="stylesheet" href="/static/add-product/add-product.css">
+<link rel="stylesheet" href="/static/hover-form.css">
+{% endblock %}
+
+{% block body %}
+
+    <form action="/update-product/{{ product['id'] }}" enctype="multipart/form-data" method='post'>
+        <div class="form-group">
+            <label for="name">Product name</label>
+            <input class='form-control' type="text" placeholder='Name' name='name' autocomplete='off'>
+        </div>
+        
+        <div class="form-group">
+            <label for="inpFile">Product image</label>
+            <input class='form-control' id='inpFile' name='inpFile' type="file">
+            
+            <div class="image-div">
+                <img src="" alt="Image Preview" class='preview-img'>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="price">Product price</label>
+            <input class='form-control' name='price' type="number" min='0' step='.01'  placeholder='U$' autocomplete='off'>
+        </div>
+        
+        <div class="form-group">
+            <select name="category" class='form-select'>
+                <option disabled selected>Product main category</option>
+                {% for category in categories %}
+                <option value="{{ category }}">{{ category }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="image">Product Description</label>
+            <input class='form-control' name='description' type="text" placeholder='Description' autocomplete='off'>
+        </div>
+        
+        <button type='submit' class='btn btn-light'>Update Product</button>
+    </form>
+    
+    <script src='/static/add-product/add-product.js'></script>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block head %} 
+    <title>Sapience Store</title> 
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/index/index.css">
+{% endblock %}
+
+{% block searchbar %}
+    <form class='search-form' action="/search" >
+        <input name='q' autocomplete='off' class='search-input' type="text" placeholder='Search...' required>
+        <button class='search-btn' type='submit'><span class='fas fa-search'></span></button>    
+    </form>
+{% endblock %}
+
+{% block navbar %}
+    <li id='cash-li'> <span class='text-success'>{{ usd(cash) }}</span></li>    
+{% endblock %}
+
+{% block body %}
+        {% set i = namespace(value=1) %}
+        
+        {% for category in categories %}
+            <span class="category-name">{{ categories_name[i.value - 1] }}</span>
+        
+            <section class="prod-row row{{ i.value }}">
+            
+            {% set j = namespace(value=1) %}
+            {% for prod in category %}
+                <div class="product-container prod{{ j.value }}">
+                    <a href="/product/{{ prod['id'] }}">
+                        <div class="img-container">
+                            <img src="/img/{{ prod['img_id'] }}" alt="Product Image">
+                        </div>    
+                    </a>
+                   
+                  
+                    <div class="details">
+                        <span class="name">{{ prod['name'] }}</span>
+                        <span class="price">{{ usd(prod['price']) }}</span>
+                    </div>
+                  
+                    <form action="/cart" method='post'>
+                        <input name='prod_id' type="hidden" value='{{ prod["id"] }}'>
+                      
+                        <button type='submit' class='cart-btn'>
+                            <span class="fas fa-shopping-cart"></span> <span class='cart-text'>Add to Cart</span>
+                        </button>
+                    </form>
+                </div>
+                {% set j.value = j.value + 1 %}
+            {% endfor %}
+        </section>
+        <hr>
+        {% set i.value = i.value + 1 %}
+        {% endfor %}
+        
+{% endblock %}

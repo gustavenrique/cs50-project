@@ -1,0 +1,175 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    max-width: 99vw;
+}
+
+:root {
+    --hiqueblue: #1f435b;
+    --light-bg: #ecf0f1;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--hiqueblue) !important;
+}
+
+body, html {
+    max-width: 100vw !important;
+    overflow-x: hidden;
+}
+/* NAVBAR */
+
+nav {
+   display: flex;
+   flex-direction: column;
+   margin: 0;
+   padding: 0;
+   align-items: start;
+   background-color: var(--hiqueblue);
+   max-width: 100vw;
+}
+
+.brand-title {padding: 1rem 1.5rem;
+}
+
+ .brand-title a {
+    text-decoration: none;
+    color: white;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: bold;
+ }
+ 
+ .brand-title a:hover {
+     text-decoration: none;
+     color: white;
+ }
+ 
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+    display: none;
+}
+
+.show-nav-list {
+    /*Togggled class using JS */
+    display: block;
+}
+
+.nav-list li {
+    width: 100vw;
+}
+
+.nav-list li a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 1rem 1.5rem;
+    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-list a:hover {
+    background-color: #ccc;
+    color: black;
+}
+
+.toggle-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+}
+
+.toggle-button .bar {
+    display: block;
+    background-color: white;
+    width: 100%;
+    height: 3px;
+}
+
+
+
+/* MAIN */
+
+main {
+    margin: 1vw 2vw;
+    padding: 1vw 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    color: white;
+}
+
+/*FOOTER*/
+
+footer {
+    background-color: #1f435b;
+    color: white;
+    width: 100vw;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.message-div {
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    font-size: clamp(1rem, 1.5vw, 2.25rem);
+    background-color: #89A7E0;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    top: 4.25rem;
+    text-align: center;
+    margin-bottom: 2.25rem;
+}
+@media (min-width: 950px) {
+    /* NAVBAR */
+    .toggle-button {display: none;}
+    
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav-list {
+        display: flex;
+        max-height: 17rem;
+        flex-direction: row;
+    }
+    
+    .nav-list li {
+        width: auto;
+    }
+}
+
+::-webkit-scrollbar {width: .7rem;}
+
+::-webkit-scrollbar-track {
+    margin-block: .1rem;
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 1rem;
+    border: 2px solid var(--hiqueblue);
+}
+
+::-webkit-scrollbar-thumb:hover {background-color: #aaa;}

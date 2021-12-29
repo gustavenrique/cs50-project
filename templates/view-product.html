@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>{{ product['name'] }}</title> 
+<link rel="stylesheet" href="/static/view-product/view-product.css">
+{% endblock %}
+
+
+{% block body %} 
+    <div class="prod-container">
+        <p class='seller-info'>
+        Seller: <span class="sellername">{{ seller['username'] }}</span>
+        </p>
+    
+        <div class="img-container">
+            <img src="/img/{{ product['img_id'] }}" alt="Product Image">    
+        </div>
+        
+        <div class="after-img">
+            <h1 class='prod-name'>{{ product['name'] }}</h1>
+        
+            <p class='price text-success'>{{ usd(product['price']) }}</p>
+            
+            <div class="form-container">
+                <form action="/buy" method='post'>
+                    <input name='prod_id' type="hidden" value='{{ product["id"] }}'>
+                    <button type='submit' class='btn btn-buy'><i class='fas fa-dollar-sign'></i> Buy</button> 
+                    <input name='quantity' class='form-control' placeholder='Quantity' type="number" min="1" step="1" required>
+                </form>
+                
+                <form action="/cart" method='post'>
+                    <input name='prod_id' type="hidden" value='{{ product["id"] }}'>
+                    <button type='submit' class='btn btn-cart'><i class='fas fa-shopping-cart'></i> Add to Cart</button>    
+                </form>     
+                
+                
+            </div>
+        
+        </div>
+        
+        {% if product['description'] %}
+            <div class="description-container">
+                <h3>Description</h3>
+                <hr>
+                <p>{{ product['description'] }}</p>
+            </div>  
+        {% endif %}
+        
+        
+    </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>Sell</title> 
+<link rel="stylesheet" href="/static/sell/sell.css">
+{% endblock %}
+
+{% block body %} 
+    <div class='add-btn'>
+        <a href="/add-product">Add product</a>
+    </div>
+
+    {% if userProducts|length > 0 %}
+        <div class="prod-list">
+        {% for prod in userProducts %}
+            <div class="product">
+                <div class="img-div">
+                    <a href="/product/{{ prod['id'] }}">
+                        <img class='image' src="/img/{{ prod['img_id'] }}" alt="Product Image">    
+                    </a>
+                </div>
+                
+                <div class="name-price">
+                    <span class='prod-name'>{{ prod['name'] }}</span>
+                    <span class="prod-price"><span class="text-success">{{ usd(prod['price']) }}</span></span>
+                </div>
+                
+                <div class="buttons">  
+                <form action="/delete-product" method='post'>
+                    <input type="hidden" name='prod_id' value="{{ prod['id'] }}">
+                    
+                    <input type="submit" class='btn btn-light' value='Delete'>
+                    
+                    <!-- TO CODE A CONFIRMATION FOR DELETING WITH JS ALERT-->
+                </form>
+                
+                <form action="/update-product/{{ prod['id'] }}">
+                    <input type="hidden" name='id' value='{{ prod["id"] }}'>
+                    <input type="submit" class='btn btn-light' value='Update'>
+                </form>
+                </div>
+            </div>
+        {% endfor %}    
+        </div>
+    {% else %}
+        <h4>You're not selling products. Let's <a href="/add-product">sell one</a>.</h4>
+    {% endif %}
+
+{% endblock %}'

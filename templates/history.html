@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>My History</title> 
+<link rel="stylesheet" href="/static/products-list.css">
+{% endblock %}
+
+{% block body %} 
+
+  {% if purchases|length > 0 %}
+    <div class="products-container">
+        {% for prod in purchases %}
+        <div class="prod-container">
+          <a href="/product/{{ prod['id'] }}">
+            <div class="img-container">
+                <img src="/img/{{ prod['img_id'] }}" alt="Product Image">
+            </div>  
+          </a>
+          
+          
+          <div class="details">
+            <span class="name">{{ prod['name'] }}</span>
+            <span class="price">{{ usd(prod['price']) }}</span>
+            <span class="time">Date and time: {{ prod['time'] }}</span>
+            <span class="qntt">Quantity: {{ prod['quantity']  }}</span>
+          </div>
+        </div>
+        {% endfor %}   
+    {% else %}
+        <h4>You haven't bought any product yet. Go <a href="/">explore</a>.</h4>
+    {% endif %}
+    </div>
+{% endblock %}

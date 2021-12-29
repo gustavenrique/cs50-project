@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>Log In</title> 
+<link rel="stylesheet" href="/static/mini-form.css">
+{% endblock %}
+
+{% block body %} 
+
+  <form action="/login" method='post'>
+    <div class="form-group">
+      <input class='form-control' type="text" name='username' placeholder='Username' autocomplete='off' required>    
+    </div>
+    <div class="form-group">
+      <input class='form-control' type="password" name='password' placeholder='Pass' required>    
+    </div>
+    <input class='btn btn-primary' type="submit" value='Log In'>
+  </form>
+
+{% endblock %}

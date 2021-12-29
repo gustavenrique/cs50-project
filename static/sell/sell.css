@@ -1,0 +1,92 @@
+.add-btn {
+    padding: .5rem 1rem;
+    background-color: white;
+    text-align: center;
+    border-radius: 50px;
+    width: clamp(10rem, 40vw, 30rem);
+    margin: .5rem auto 1rem auto;
+}
+
+.add-btn a, .add-btn a:hover {
+    text-decoration: none;
+    display: block;
+    width: 1005;
+    height: 100%;
+    color: black;
+    font-weight: bold;
+}
+
+/* PRODUCTS */
+
+.product {
+   border-top: 1px solid #aaa;
+   padding: .5rem 1rem;
+   height: clamp(8rem, 15vh, 12rem);
+   margin: .5rem 0;
+}
+
+.img-div {
+    width: 10rem;
+    background-color: white;
+    float: left;
+    height: 100% !important;
+    margin-right: 1rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.image {
+    float: left;
+    max-height: 100% !important;
+    max-width: 100% !important;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.prod-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.name-price {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+    max-height: 100%;
+}
+
+.name-price span{
+    font-size: 1.25rem;
+}
+
+.link-btn {
+    background-color: white;
+    padding: .5rem 1rem;
+    max-width: 10rem;
+}
+
+.link-btn a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+.buttons {
+    display: flex;
+    max-width: 14rem;
+    justify-content: space-between;
+    margin-top: .5rem;
+}
+
+.buttons form {max-width: 50%;}
+
+.buttons form input {width: 6rem;}
+
