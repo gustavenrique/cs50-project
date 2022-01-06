@@ -1,4 +1,4 @@
-# SAPIENCE STOR
+# SAPIENCE STORE
 #### [Video Demo](https://youtu.be/HBnj7MTYh28)
 #### Description:
 This project is a **Flask App** that simulates an **e-commerce**: Sapience Store,

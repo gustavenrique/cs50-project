@@ -345,3 +345,7 @@ def my_history():
   purchases = db.execute('SELECT * FROM transactions JOIN products ON transactions.product_id = products.id WHERE buyer_id = ?', session['user_id'])
   
   return render_template('history.html', purchases = purchases, usd=usd)
+
+
+if __name__ == '__main__':
+  app.run(host='0.0.0.0', port=port, debug=True)
