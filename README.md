@@ -1,5 +1,5 @@
 # SAPIENCE STOR
-#### Video Demo:  https://youtu.be/HBnj7MTYh28
+#### [Video Demo](https://youtu.be/HBnj7MTYh28)
 #### Description:
 This project is a **Flask App** that simulates an **e-commerce**: Sapience Store,
 the place where just the most wise people buy stuff, given their intelligence to
