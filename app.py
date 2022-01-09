@@ -8,14 +8,12 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
-port = int(os.environ.get('PORT', 5000))
 
 # Session config
 app.config['SESSION_FILE_DIR'] = mkdtemp()
 app.config['SESSION_PERMANENT'] = True
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
-
 
 db = SQL("sqlite:///store.db")
 
@@ -347,7 +345,3 @@ def my_history():
   purchases = db.execute('SELECT * FROM transactions JOIN products ON transactions.product_id = products.id WHERE buyer_id = ?', session['user_id'])
   
   return render_template('history.html', purchases = purchases, usd=usd)
-
-
-if __name__ == '__main__':
-  app.run(host='0.0.0.0', port=port, debug=True)
