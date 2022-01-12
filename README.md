@@ -23,7 +23,8 @@ Techonologies and frameworks:
 
 1. [Download Python]('https://www.python.org/downloads/')
 2. In the terminal, open the project directory
-3. Activate the virtual environment:
+3. Install and create the virtual environment
+4. Activate the virtual environment:
 On Windows, run:
 ```
 env\Scripts\activate.bat
